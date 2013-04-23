@@ -1,0 +1,58 @@
+/*code by yuxi4n*/
+
+body{margin:0px;font-size:12px;color:#FFF;background:#333;}
+body a,a:link,a:visited{color:#108AC6;text-decoration:none;}
+body a:hover{color:#FFF;}
+ul,li{margin:0px;padding:0px;}
+textarea{font-size:13px;}
+pre{word-break:break-all;}
+
+#Ww_BOX{margin:0 auto;width:980px;}
+#Ww_Head{position:relative;width:980px;height:70px;border-bottom:1px solid #999;}
+	#Db_MainNav{position:absolute;list-style:none;left:0px;bottom:0px;float:left;}
+	#Db_MainNav li{float:left;}
+	#Db_MainNav li a,a:link,a:visited{display:block;padding:4px;font-size:14px;color:#EEE;}
+	.active_li{background:#FFF;}
+#Ww_Body{width:980px;height:500px;overflow:hidden;}
+.Ww_B{margin-top:10px;}
+/*Encode/Decode Ww_B_0*/
+	#Ww_B_0_Left{width:710px;height:500px;float:left;}
+		#Ww_B_0_textarea{width:704px;height:450px;}
+	#Ww_B_0_Right{width:265px;height:500px;float:left;overflow:hidden;padding-left:5px;}
+/*XSSCodz Ww_B_1*/
+/*.Ww_B_list{width:970px;margin:0 4px;height:210px;border:1px solid #999;overflow:hidden;overflow-y:scroll;}*/
+.Ww_B_list{width:970px;margin:0 4px;height:210px;border:1px solid #BBB;border-top:1px solid #CCC;}
+.Ww_B_table th{background:#999;color:#FFF;text-align:left;font-weight:normal;padding-left:2px;line-height:16px;font-size:14px;height:30px;}
+.Ww_B_table td{padding-left:2px;height:16px;white-space:nowrap;word-break:break-all;overflow:hidden;}
+.Ww_B_table tr.alt td{background:#FFF;}
+.Ww_B_table tr.over td{background:#BCD4EC;}
+.Ww_B_table tr.cli td{background:#E6FEBC;}
+.Ww_B_table tr.cutoffl td{background:#CCC;}
+	#Ww_B_1_Top{width:980px;height:228px;float:left;}
+		#Ww_B_1_textarea{width:974px;height:200px;}
+	#Ww_B_1_Bottom{width:980px;height:244px;float:left;}
+		#XSSCodz_textarea{width:974px;height:238px;}
+/*WormAction Ww_B_2*/
+	#Ww_B_2_Left{width:710px;height:500px;float:left;}
+		#Ww_B_2_textarea{width:704px;height:450px;}
+	#Ww_B_2_Right{width:268px;margin-left:2px;height:500px;float:left;overflow:hidden;}
+/*RemoteControl Ww_B_3*/
+#cmd_div_left{width:670px;height:400px;float:left;overflow:hidden;}
+	#cmd{width:664px;height:390px;}
+#cmd_div_right{width:310px;height:400px;float:left;overflow:hidden;}
+	#victim_id{width:200px;height:16px;margin:0 4px;}
+	#victim_list{width:300px;height:367px;margin:4px;border:1px solid #F4FEC0;background:#F7FFEE;color:#333;}
+
+/*CSRFCodz Ww_B_4*/
+#Ww_B_4_Top{width:980px;height:250px;float:left;}
+	#csrfurl{width:378px;height:16px;}
+	#csrfvalue{width:500px;height:16px;}
+	#Ww_B_4_textarea{width:974px;height:200px;}
+#Ww_B_4_Bottom{width:980px;height:206px;float:left;}
+	#csrf_textarea{width:974px;height:200px;}
+
+/*About Ww_B_5*/
+		#Ww_B_4_list0{height:470px;}
+	#Ww_B_4_Top{width:980px;float:left;}
+	
+#sys_tip{position:absolute;left:0px;top:0px;display:block;width:auto;height:18px;padding:5px 2px 0px 2px;background:#DF0451;color:#FFF;}

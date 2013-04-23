@@ -1,0 +1,2 @@
+injectScript('http://127.0.0.1:8088/knownxss/lib/inject.js');
+setTimeout("injectIframe('http://127.0.0.1/hi.html')",1000);
